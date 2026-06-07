@@ -1,0 +1,86 @@
+{
+  "best_name": "scarce_route_ratio_guard_v2",
+  "best_metrics": {
+    "ok": true,
+    "rows": [
+      {
+        "ok": true,
+        "det_cov": 1.0,
+        "det_score": 211.327,
+        "uncovered": 0,
+        "entries": 4,
+        "preset": "calibrated_tiny",
+        "seed": 0,
+        "elapsed": 0.0018268999992869794
+      },
+      {
+        "ok": true,
+        "det_cov": 1.0,
+        "det_score": 580.233,
+        "uncovered": 0,
+        "entries": 11,
+        "preset": "calibrated_small",
+        "seed": 0,
+        "elapsed": 0.010190300003159791
+      },
+      {
+        "ok": true,
+        "det_cov": 1.0,
+        "det_score": 542.074,
+        "uncovered": 0,
+        "entries": 16,
+        "preset": "calibrated_medium",
+        "seed": 0,
+        "elapsed": 0.0792854999890551
+      },
+      {
+        "ok": true,
+        "det_cov": 1.0,
+        "det_score": 1208.6989999999998,
+        "uncovered": 0,
+        "entries": 24,
+        "preset": "calibrated_large",
+        "seed": 0,
+        "elapsed": 0.1616684000036912
+      },
+      {
+        "ok": true,
+        "det_cov": 1.0,
+        "det_score": 1316.7240000000002,
+        "uncovered": 0,
+        "entries": 16,
+        "preset": "calibrated_scarce",
+        "seed": 0,
+        "elapsed": 0.12247800000477582
+      },
+      {
+        "ok": true,
+        "det_cov": 1.0,
+        "det_score": 1074.922,
+        "uncovered": 0,
+        "entries": 17,
+        "preset": "calibrated_low_will",
+        "seed": 0,
+        "elapsed": 0.09753899999486748
+      },
+      {
+        "ok": true,
+        "det_cov": 1.0,
+        "det_score": 622.6419999999999,
+        "uncovered": 0,
+        "entries": 17,
+        "preset": "calibrated_high_noise",
+        "seed": 0,
+        "elapsed": 0.11082420000457205
+      }
+    ],
+    "avg_det_score": 793.8029999999999,
+    "min_det_cov": 1.0,
+    "avg_time_ms": 83.40175714277264,
+    "all_full_cov": true
+  },
+  "tokens_used": 0,
+  "elapsed_seconds": 10.687999999994645,
+  "attempts": 3,
+  "run_dir": "I:\\AI竞赛\\meituan4\\runs\\web_20260606023942_nqvc7d"
+}

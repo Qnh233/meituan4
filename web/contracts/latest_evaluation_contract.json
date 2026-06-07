@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "target_file": "solver.py",
+  "scope": "solver_py_only",
+  "entrypoint": "solve(input_text: str) -> list",
+  "user_goal": "保持线上 10/10 完成率，优先寻找不会退化成 cost_first 的小幅改进。",
+  "input_contract": {
+    "dataset_kind": "missing",
+    "structure": "No evaluation set provided.",
+    "sample_preview": "",
+    "has_labels": false
+  },
+  "output_contract": {
+    "description": "Candidate solver must expose the configured entrypoint and return a judge-compatible result.",
+    "dependency_policy": "solver.py should remain self-contained unless this contract explicitly allows dependencies."
+  },
+  "evaluator": {
+    "type": "llm_as_judge",
+    "adapter_name": "evaluate(candidate_path: str, dataset_path: str | None = None) -> dict",
+    "source_script_functions": [],
+    "adapter_preview": "def evaluate(candidate_path: str, dataset_path: str | None = None) -> dict:\n    # No callable evaluator was found in the uploaded script.\n    # Fill this adapter with cloud-safe evaluation logic before running the agent.\n    return {\"ok\": False, \"feedback\": \"No evaluator function found\"}\n",
+    "llm_judge_enabled": true,
+    "rubric": "保持线上 10/10 完成率，优先寻找不会退化成 cost_first 的小幅改进。"
+  },
+  "metrics": {
+    "primary": "llm_pairwise_preference",
+    "direction": "minimize",
+    "hard_constraints": [
+      "candidate must run without crashing",
+      "candidate output must match the declared output contract"
+    ],
+    "accept_rule": "hard_pass == true and primary metric improves over baseline"
+  },
+  "cloud_policy": {
+    "arbitrary_local_command_execution": false,
+    "evaluator_script_mode": "inspect_and_adapt",
+    "validation_required_before_agent_run": true
+  },
+  "analysis_source": "local_semantic_scaffold"
+}

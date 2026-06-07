@@ -1,0 +1,697 @@
+{
+  "strategies": [
+    {
+      "id": "GreedyCoverage",
+      "name": "GreedyCoverage",
+      "type": "unknown",
+      "module_path": null,
+      "code_path": null,
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 424.468
+        },
+        "monte_carlo": {
+          "coverage": 0.53,
+          "score": 225.43254000000002,
+          "n_sims": 100
+        }
+      },
+      "tags": [],
+      "created_at": "2026-05-13 13:19",
+      "rationale": "覆盖率硬约束：单任务优先再合单，确保每个任务有骑手覆盖",
+      "performance_history": []
+    },
+    {
+      "id": "GreedyRatio",
+      "name": "GreedyRatio",
+      "type": "unknown",
+      "module_path": null,
+      "code_path": null,
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 472.9719999999999
+        },
+        "monte_carlo": {
+          "coverage": 0.8005000000000001,
+          "score": 380.5823699999999,
+          "n_sims": 100
+        }
+      },
+      "tags": [],
+      "created_at": "2026-05-13 13:19",
+      "rationale": "性价比平衡：按 willingness/score 降序，在成本与覆盖率间折中",
+      "performance_history": []
+    },
+    {
+      "id": "GreedyScore",
+      "name": "GreedyScore",
+      "type": "unknown",
+      "module_path": null,
+      "code_path": null,
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 424.468
+        },
+        "monte_carlo": {
+          "coverage": 0.53,
+          "score": 225.43254000000002,
+          "n_sims": 100
+        }
+      },
+      "tags": [],
+      "created_at": "2026-05-13 13:19",
+      "rationale": "纯成本优先：按 total_score 升序，试探低成本的覆盖率下界",
+      "performance_history": []
+    },
+    {
+      "id": "GreedySetPacking",
+      "name": "GreedySetPacking",
+      "type": "unknown",
+      "module_path": null,
+      "code_path": null,
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 399.904
+        },
+        "monte_carlo": {
+          "coverage": 0.292,
+          "score": 117.25256000000002,
+          "n_sims": 100
+        }
+      },
+      "tags": [],
+      "created_at": "2026-05-13 13:19",
+      "rationale": "单位成本打包：按 score/task_count 升序，优先选人均成本最低的合单",
+      "performance_history": []
+    },
+    {
+      "id": "GreedyWillingness",
+      "name": "GreedyWillingness",
+      "type": "unknown",
+      "module_path": null,
+      "code_path": null,
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 1268.363
+        },
+        "monte_carlo": {
+          "coverage": 0.93575,
+          "score": 1186.8201299999998,
+          "n_sims": 100
+        }
+      },
+      "tags": [],
+      "created_at": "2026-05-13 13:19",
+      "rationale": "纯意愿优先：按 willingness 降序，试探高覆盖率方案的成本上界",
+      "performance_history": []
+    },
+    {
+      "id": "HungarianPartial",
+      "name": "HungarianPartial",
+      "type": "unknown",
+      "module_path": null,
+      "code_path": null,
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 483.9220000000001
+        },
+        "monte_carlo": {
+          "coverage": 0.8242499999999999,
+          "score": 399.61488,
+          "n_sims": 100
+        }
+      },
+      "tags": [],
+      "created_at": "2026-05-13 13:19",
+      "rationale": "二分图最优：匈牙利算法求单任务最优匹配，再贪心补全合单",
+      "performance_history": []
+    },
+    {
+      "id": "IterativeMulti",
+      "name": "IterativeMulti",
+      "type": "unknown",
+      "module_path": null,
+      "code_path": null,
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 472.9719999999999
+        },
+        "monte_carlo": {
+          "coverage": 0.8005000000000001,
+          "score": 380.5823699999999,
+          "n_sims": 100
+        }
+      },
+      "tags": [],
+      "created_at": "2026-05-13 13:19",
+      "rationale": "三阶段混合：ratio→willingness→unit_score 逐层补全",
+      "performance_history": []
+    },
+    {
+      "id": "MultiRound",
+      "name": "MultiRound",
+      "type": "unknown",
+      "module_path": null,
+      "code_path": null,
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 472.9719999999999
+        },
+        "monte_carlo": {
+          "coverage": 0.8005000000000001,
+          "score": 380.5823699999999,
+          "n_sims": 100
+        }
+      },
+      "tags": [],
+      "created_at": "2026-05-13 13:19",
+      "rationale": "多轮消除：每轮贪心后移除冲突行，迭代分配剩余资源",
+      "performance_history": []
+    },
+    {
+      "id": "SimulatedAnnealing",
+      "name": "SimulatedAnnealing",
+      "type": "unknown",
+      "module_path": null,
+      "code_path": null,
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 937.087
+        },
+        "monte_carlo": {
+          "coverage": 0.35350000000000004,
+          "score": 331.28147999999993,
+          "n_sims": 100
+        }
+      },
+      "tags": [],
+      "created_at": "2026-05-13 13:20",
+      "rationale": "模拟退火局部搜索：从可行解出发随机扰动，按 Metropolis 准则接受新解",
+      "performance_history": []
+    },
+    {
+      "id": "TabuSearch",
+      "name": "TabuSearch",
+      "type": "unknown",
+      "module_path": null,
+      "code_path": null,
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 765.21
+        },
+        "monte_carlo": {
+          "coverage": 0.24325000000000002,
+          "score": 195.77933999999996,
+          "n_sims": 100
+        }
+      },
+      "tags": [],
+      "created_at": "2026-05-13 13:21",
+      "rationale": "禁忌搜索局部搜索：邻域迭代改进，禁忌列表防止回环",
+      "performance_history": []
+    },
+    {
+      "id": "greedycomposite",
+      "name": "GreedyComposite",
+      "type": "llm_generated",
+      "module_path": null,
+      "code_path": "I:\\AI竞赛\\meituan4\\library\\codes\\greedycomposite.py",
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 615.872
+        },
+        "monte_carlo": {
+          "coverage": 0.8875,
+          "score": 547.971,
+          "n_sims": 10
+        }
+      },
+      "tags": [
+        "llm_generated",
+        "greedy"
+      ],
+      "created_at": "2026-05-13 14:29",
+      "updated_at": "2026-05-21 10:57",
+      "performance_history": [
+        {
+          "det_cov": 1.0,
+          "det_score": 615.872,
+          "mc_cov": 0.8905,
+          "mc_score": 550.4507199999999,
+          "date": "2026-05-15 10:13"
+        },
+        {
+          "det_cov": 1.0,
+          "det_score": 164.22899999999998,
+          "mc_cov": 0.13333333333333333,
+          "mc_score": 4.144,
+          "date": "2026-05-15 10:16"
+        },
+        {
+          "det_cov": 1.0,
+          "det_score": 164.22899999999998,
+          "mc_cov": 0.1111111111111111,
+          "mc_score": 3.453333333333333,
+          "date": "2026-05-15 10:45"
+        },
+        {
+          "det_cov": 1.0,
+          "det_score": 615.872,
+          "mc_cov": 0.8875,
+          "mc_score": 547.971,
+          "date": "2026-05-21 10:57"
+        }
+      ],
+      "rationale": "dry-run 模板探索: "
+    },
+    {
+      "id": "twophase",
+      "name": "TwoPhase",
+      "type": "llm_generated",
+      "module_path": null,
+      "code_path": "I:\\AI竞赛\\meituan4\\library\\codes\\twophase.py",
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 442.8899999999998
+        },
+        "monte_carlo": {
+          "coverage": 0.6725,
+          "score": 297.7713,
+          "n_sims": 10
+        }
+      },
+      "tags": [
+        "llm_generated",
+        "two_phase"
+      ],
+      "created_at": "2026-05-13 14:29",
+      "performance_history": [
+        {
+          "det_cov": 1.0,
+          "det_score": 442.8899999999998,
+          "mc_cov": 0.6910000000000001,
+          "mc_score": 306.40803999999997,
+          "date": "2026-05-15 10:14"
+        },
+        {
+          "det_cov": 1.0,
+          "det_score": 164.256,
+          "mc_cov": 0.19999999999999998,
+          "mc_score": 6.215999999999999,
+          "date": "2026-05-15 10:16"
+        },
+        {
+          "det_cov": 1.0,
+          "det_score": 442.8899999999998,
+          "mc_cov": 0.6725,
+          "mc_score": 297.7713,
+          "date": "2026-05-21 10:57"
+        }
+      ],
+      "updated_at": "2026-05-21 10:57",
+      "rationale": "dry-run 模板探索: "
+    },
+    {
+      "id": "bestpertask",
+      "name": "BestPerTask",
+      "type": "llm_generated",
+      "module_path": null,
+      "code_path": "I:\\AI竞赛\\meituan4\\library\\codes\\bestpertask.py",
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 424.468
+        },
+        "monte_carlo": {
+          "coverage": 0.515,
+          "score": 217.8381,
+          "n_sims": 10
+        }
+      },
+      "tags": [
+        "llm_generated"
+      ],
+      "created_at": "2026-05-13 14:29",
+      "performance_history": [
+        {
+          "det_cov": 1.0,
+          "det_score": 424.468,
+          "mc_cov": 0.5355000000000001,
+          "mc_score": 227.27985999999993,
+          "date": "2026-05-15 10:14"
+        },
+        {
+          "det_cov": 1.0,
+          "det_score": 424.468,
+          "mc_cov": 0.515,
+          "mc_score": 217.8381,
+          "date": "2026-05-21 10:57"
+        }
+      ],
+      "updated_at": "2026-05-21 10:57",
+      "rationale": "dry-run 模板探索: "
+    },
+    {
+      "id": "weightedwillingness",
+      "name": "WeightedWillingness",
+      "type": "llm_generated",
+      "module_path": null,
+      "code_path": "I:\\AI竞赛\\meituan4\\library\\codes\\weightedwillingness.py",
+      "performance": {
+        "deterministic": {
+          "coverage": 0.975,
+          "score": 3568.9060000000013
+        },
+        "monte_carlo": {
+          "coverage": 0.9369999999999999,
+          "score": 1079.78496,
+          "n_sims": 50
+        }
+      },
+      "tags": [
+        "llm_generated"
+      ],
+      "created_at": "2026-05-13 14:43",
+      "performance_history": []
+    },
+    {
+      "id": "thresholdthenratio",
+      "name": "ThresholdThenRatio",
+      "type": "llm_generated",
+      "module_path": null,
+      "code_path": "I:\\AI竞赛\\meituan4\\library\\codes\\thresholdthenratio.py",
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 2217.2580000000003
+        },
+        "monte_carlo": {
+          "coverage": 0.9494999999999999,
+          "score": 611.9990799999999,
+          "n_sims": 50
+        }
+      },
+      "tags": [
+        "llm_generated"
+      ],
+      "created_at": "2026-05-13 14:43",
+      "performance_history": []
+    },
+    {
+      "id": "mincostmaxflowwithwillingness",
+      "name": "MinCostMaxFlowWithWillingness",
+      "type": "llm_generated",
+      "module_path": null,
+      "code_path": "I:\\AI竞赛\\meituan4\\library\\codes\\mincostmaxflowwithwillingness.py",
+      "performance": {
+        "deterministic": {
+          "coverage": 0.0,
+          "score": 0.0
+        },
+        "monte_carlo": {
+          "coverage": 0.0,
+          "score": 0.0,
+          "n_sims": 50
+        }
+      },
+      "tags": [
+        "llm_generated",
+        "cost_sensitive"
+      ],
+      "created_at": "2026-05-13 14:46",
+      "performance_history": []
+    },
+    {
+      "id": "thresholdwithratioandscore",
+      "name": "ThresholdWithRatioAndScore",
+      "type": "llm_generated",
+      "module_path": null,
+      "code_path": "I:\\AI竞赛\\meituan4\\library\\codes\\thresholdwithratioandscore.py",
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 1268.363
+        },
+        "monte_carlo": {
+          "coverage": 0.9335000000000001,
+          "score": 1184.1298399999996,
+          "n_sims": 50
+        }
+      },
+      "tags": [
+        "llm_generated",
+        "cost_sensitive"
+      ],
+      "created_at": "2026-05-13 14:47",
+      "performance_history": []
+    },
+    {
+      "id": "scarcityfirstcostefficient",
+      "name": "ScarcityFirstCostEfficient",
+      "type": "llm_generated",
+      "module_path": null,
+      "code_path": "I:\\AI竞赛\\meituan4\\library\\codes\\scarcityfirstcostefficient.py",
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 427.2079999999999
+        },
+        "monte_carlo": {
+          "coverage": 0.5255,
+          "score": 224.8688200000001,
+          "n_sims": 50
+        }
+      },
+      "tags": [
+        "llm_generated",
+        "cost_sensitive"
+      ],
+      "created_at": "2026-05-13 14:50",
+      "performance_history": []
+    },
+    {
+      "id": "iterativeeliminationwithscarcitythreshold",
+      "name": "IterativeEliminationWithScarcityThreshold",
+      "type": "llm_generated",
+      "module_path": null,
+      "code_path": "I:\\AI竞赛\\meituan4\\library\\codes\\iterativeeliminationwithscarcitythreshold.py",
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 1766.2039999999997
+        },
+        "monte_carlo": {
+          "coverage": 0.9305,
+          "score": 577.0919999999999,
+          "n_sims": 50
+        }
+      },
+      "tags": [
+        "llm_generated"
+      ],
+      "created_at": "2026-05-13 14:54",
+      "performance_history": []
+    },
+    {
+      "id": "thresholdthenratiobyscore",
+      "name": "ThresholdThenRatioByScore",
+      "type": "llm_generated",
+      "module_path": null,
+      "code_path": "I:\\AI竞赛\\meituan4\\library\\codes\\thresholdthenratiobyscore.py",
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 2217.2580000000003
+        },
+        "monte_carlo": {
+          "coverage": 0.9494999999999999,
+          "score": 611.9990799999999,
+          "n_sims": 50
+        }
+      },
+      "tags": [
+        "llm_generated",
+        "cost_sensitive"
+      ],
+      "created_at": "2026-05-13 14:56",
+      "performance_history": []
+    },
+    {
+      "id": "scoreoptimized",
+      "name": "ScoreOptimized",
+      "type": "template_run",
+      "module_path": null,
+      "code_path": "I:\\AI竞赛\\meituan4\\library\\codes\\scoreoptimized.py",
+      "rationale": "dry-run 模板探索: ",
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 399.904
+        },
+        "monte_carlo": {
+          "coverage": 0.298,
+          "score": 119.76872000000004,
+          "n_sims": 50
+        }
+      },
+      "performance_history": [
+        {
+          "det_cov": 1.0,
+          "det_score": 399.904,
+          "mc_cov": 0.298,
+          "mc_score": 119.76872000000004,
+          "date": "2026-05-15 10:14"
+        }
+      ],
+      "tags": [
+        "llm_generated",
+        "cost_sensitive"
+      ],
+      "created_at": "2026-05-15 10:14",
+      "updated_at": "2026-05-15 10:14"
+    },
+    {
+      "id": "multistartbeamsearchwithordercriticality",
+      "name": "MultiStartBeamSearchWithOrderCriticality",
+      "type": "llm_generated",
+      "module_path": null,
+      "code_path": "I:\\AI竞赛\\meituan4\\library\\codes\\multistartbeamsearchwithordercriticality.py",
+      "rationale": "LLM 生成: ",
+      "performance": {
+        "deterministic": {
+          "coverage": 0.0,
+          "score": 0.0
+        },
+        "monte_carlo": {
+          "coverage": 0.0,
+          "score": 0.0,
+          "n_sims": 50
+        }
+      },
+      "performance_history": [
+        {
+          "det_cov": 0.0,
+          "det_score": 0.0,
+          "mc_cov": 0.0,
+          "mc_score": 0.0,
+          "date": "2026-05-21 14:37"
+        }
+      ],
+      "tags": [
+        "llm_generated",
+        "local_search"
+      ],
+      "created_at": "2026-05-21 14:37"
+    },
+    {
+      "id": "iterativebipartitematchingwithorderbundling",
+      "name": "IterativeBipartiteMatchingWithOrderBundling",
+      "type": "llm_generated",
+      "module_path": null,
+      "code_path": "I:\\AI竞赛\\meituan4\\library\\codes\\iterativebipartitematchingwithorderbundling.py",
+      "rationale": "LLM 生成: ",
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 1184.465
+        },
+        "monte_carlo": {
+          "coverage": 0.015,
+          "score": 15.48018,
+          "n_sims": 50
+        }
+      },
+      "performance_history": [
+        {
+          "det_cov": 1.0,
+          "det_score": 1184.465,
+          "mc_cov": 0.015,
+          "mc_score": 15.48018,
+          "date": "2026-05-21 18:59"
+        }
+      ],
+      "tags": [
+        "llm_generated"
+      ],
+      "created_at": "2026-05-21 18:59"
+    },
+    {
+      "id": "hierarchicalcoveragewithboundedsearch",
+      "name": "HierarchicalCoverageWithBoundedSearch",
+      "type": "llm_generated",
+      "module_path": null,
+      "code_path": "I:\\AI竞赛\\meituan4\\library\\codes\\hierarchicalcoveragewithboundedsearch.py",
+      "rationale": "LLM 生成: ",
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 1293.663
+        },
+        "monte_carlo": {
+          "coverage": 0.028000000000000004,
+          "score": 39.760180000000005,
+          "n_sims": 50
+        }
+      },
+      "performance_history": [
+        {
+          "det_cov": 1.0,
+          "det_score": 1293.663,
+          "mc_cov": 0.028000000000000004,
+          "mc_score": 39.760180000000005,
+          "date": "2026-05-21 19:15"
+        }
+      ],
+      "tags": [
+        "llm_generated",
+        "local_search"
+      ],
+      "created_at": "2026-05-21 19:15"
+    },
+    {
+      "id": "scarce_route_ratio_guard",
+      "name": "scarce_route_ratio_guard",
+      "type": "simple_loop",
+      "module_path": null,
+      "code_path": "I:\\AI竞赛\\meituan4\\library\\codes\\scarce_route_ratio_guard.py",
+      "rationale": "avg_det 改善 -11.60",
+      "performance": {
+        "deterministic": {
+          "coverage": 1.0,
+          "score": 799.5335714285713
+        },
+        "monte_carlo": {
+          "coverage": 0.0,
+          "score": 0.0,
+          "n_sims": 2
+        }
+      },
+      "performance_history": [
+        {
+          "det_cov": 1.0,
+          "det_score": 799.5335714285713,
+          "mc_cov": 0.0,
+          "mc_score": 0.0,
+          "date": "2026-06-05 22:47"
+        }
+      ],
+      "tags": [
+        "simple_loop",
+        "llm_generated"
+      ],
+      "created_at": "2026-06-05 22:47"
+    }
+  ]
+}

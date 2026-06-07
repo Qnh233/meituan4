@@ -1,0 +1,13 @@
+{
+  "server": {
+    "apiHost": "127.0.0.1",
+    "apiPort": 8787
+  },
+  "auth": {
+    "enabled": true,
+    "username": "admin",
+    "password": "change-this-password",
+    "sessionSecret": "change-this-long-random-secret",
+    "sessionTtlHours": 12
+  }
+}

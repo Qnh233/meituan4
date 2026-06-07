@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "target_file": "solver.py",
+  "scope": "solver_py_only",
+  "entrypoint": "solve(input_text: str) -> list",
+  "user_goal": "演示 LoopForge 如何在没有额外评测集时，用 LLM-as-judge 对候选 solver 做语义评估补充。",
+  "input_contract": {
+    "dataset_kind": "missing",
+    "structure": "No external evaluation set provided.",
+    "source_file": null,
+    "sample_preview": "",
+    "has_labels": false
+  },
+  "output_contract": {
+    "description": "Candidate solver must expose solve(input_text: str) -> list and remain self-contained.",
+    "dependency_policy": "solver.py should use only Python standard library."
+  },
+  "evaluator": {
+    "type": "llm_as_judge",
+    "adapter_name": "llm_judge_compare(candidate_path, baseline_path)",
+    "source_script_functions": [],
+    "adapter_preview": "",
+    "llm_judge_enabled": true,
+    "rubric": "候选 solver 应保持 solve 接口、纯标准库、订单和骑手不重复使用、优先保持 100% 完成率，并在不破坏覆盖率的前提下降低平均惩罚。"
+  },
+  "metrics": {
+    "primary": "llm_pairwise_preference",
+    "direction": "maximize",
+    "hard_constraints": [
+      "candidate must run without crashing",
+      "candidate output must match the declared output contract",
+      "solver.py must remain self-contained"
+    ],
+    "accept_rule": "LLM-as-judge is a semantic supplement in this project; local deterministic evaluation remains the acceptance gate."
+  },
+  "cloud_policy": {
+    "arbitrary_local_command_execution": false,
+    "evaluator_script_mode": "llm_as_judge",
+    "validation_required_before_agent_run": true
+  },
+  "analysis_source": "demo_contract"
+}

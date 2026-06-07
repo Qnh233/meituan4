@@ -1,0 +1,1322 @@
+arXiv:2311.12054v1  [physics.ao-ph]  18 Nov 2023
+Wet scavenging process of particulate matter (PM10): A
+multivariate complex network approach
+Thomas Plocostea,b,∗, Rafael Carmona-Cabezasc, Eduardo Guti´errez de
+Rav´ec, Francisco Jos´e Jim´enez-Horneroc
+aDepartment of Research in Geoscience, KaruSph`ere SASU, Abymes 97139, Guadeloupe
+(F.W.I.), France
+bUniv Antilles, LaRGE Laboratoire de Recherche en G´eosciences et Energies (EA 4539),
+F-97100 Pointe-`a-Pitre, France
+cComplex Geometry, Patterns and Scaling in Natural and Human Phenomena
+(GEPENA) Research Group, University of Cordoba, Gregor Mendel Building (3rd ﬂoor),
+Campus Rabanales, 14071, Cordoba, Spain
+Abstract
+This paper reports the results of research on PM10 wet scavenging by
+rainfall using a new multilayer complex networks called Multiplex Visibility
+Graphs (MVG). To the best of our knowledge, this work is the ﬁrst to assess
+PM10 wet deposition using multivariate time series according to African
+dust seasonality. We considered 11 years of daily PM10 and rainfall data
+from the Guadeloupe archipelago. To analyse the impact of rainfall on PM10
+behaviour, two MVG parameters were computed: the average edge overlap
+(ω) and the interlayer mutual information (IP M10Rainfall). On the 1-d scale,
+the ω results showed that the wet scavenging process was higher during the
+second half of the year when the high dust season and the rainy season are
+juxtaposed. This highlights a greater correlation between the microscopic
+structure of the signal, and the impact of rainfall on PM10 concentrations
+∗Corresponding author
+Email addresses: thomas.plocoste@karusphere.com (Thomas Plocoste),
+f12carcr@uco.es (Rafael Carmona-Cabezas), eduardo@uco.es (Eduardo Guti´errez de
+Rav´e), fjhornero@uco.es (Francisco Jos´e Jim´enez-Hornero)
+Preprint submitted to Atmospheric Pollution Research
+November 22, 2023
+
+is more signiﬁcant when the atmosphere is loaded with dust.
+The joint
+probability computed between the PM10 and rainfall nodes conﬁrmed this
+trend. The IP M10Rainfall results indicated a correlation between PM10 and
+rainfall structures throughout the year. Furthermore, IP M10Rainfall values
+were higher during the transition periods between winter and summer (and
+vice versa). Our study showed that MVG is a powerful technique for inves-
+tigating the relationship between at least two nonlinear time series using a
+multivariate time series.
+Keywords:
+PM10, Wet scavenging, Multiplex visibility graphs, Complex
+networks, Caribbean area
+1. Introduction
+In geoscience, precipitation is a key component of the water cycle (Schneider et al.,
+2014) and of atmospheric circulation (Kidd and Huﬀman, 2011). In recent
+decades, the removal of atmospheric Particulate Matter (PM) by falling pre-
+cipitation has greatly interested the scientiﬁc community (Gonz´alez and Aristiz´abal,
+2012; Ouyang et al., 2015; Wu et al., 2018). This phenomenon, which can
+occur through liquid (rain) and solid (snow) forms of precipitation, is called
+“wet deposition” (Kim et al., 2012; Singh et al., 2016). Numerous studies
+have shown that wet scavenging of PM by rainfall is one of the primary pre-
+cipitation processes for wet deposition (Laouali et al., 2012; Tiwari et al.,
+2012; Yoo et al., 2014; Singh et al., 2016; Olszowski, 2017; Wu et al., 2018;
+McClintock et al., 2019). Raindrops falling through the air column, bump
+into and collect air particles. Raindrops approach the particles, apply a force
+via the air as a medium, and change trajectory (Sonwani and Kulshrestha,
+2019). The collision between the raindrops and the PM is conditioned by
+size and relative location (Olszowski, 2017).
+The two primary wet scav-
+2
+
+enging mechanisms related to rainfall are rainout (in-cloud scavenging) and
+washout (below-cloud scavenging) (Dallarosa et al., 2005; Tombette et al.,
+2009; Sonwani and Kulshrestha, 2019). Studies have shown that wet scav-
+enging can remove 30% of the aerosols from the troposphere (Murakami et al.,
+1983; Schumann, 1989).
+Over the past decades, two types of PM have received special attention
+due to their health impact: ﬁne particles (particulate diameter < 2.5 µm,
+PM2.5) and coarse particles (particles with diameters between 2.5 and 10
+µm, PM10−2.5) (Bayraktar et al., 2010; Plocoste and Calif, 2019). Epidemi-
+ological studies reveal that short- and long-term exposure to high concentra-
+tions of PM2.5 and PM10 can cause human health problems (Weinmayr et al.,
+2010; Atkinson et al., 2014; Lu et al., 2015). The authors focused on PM10,
+which also strongly impacts climate (Plocoste and Pav´on-Dom´ınguez, 2020b;
+Plocoste et al., 2020a).
+In the Caribbean, air quality is frequently degraded by African dust
+(Euphrasie-Clotilde et al., 2020). Dust haze episodes primarily occur dur-
+ing summer (Petit et al., 2005; Prospero et al., 2014). Many studies present
+the processes that allow the transport of dust over the Atlantic Ocean
+(Perry et al., 1997; Prospero, 1999; Prospero and Lamb, 2003; Engelstaedter et al.,
+2006; Kumar et al., 2014; Euphrasie-Clotilde et al., 2020). As the wet scav-
+enging of PM10 is a standard indicator of air quality in a given area, the
+aim of this study was to investigate the wet scavenging process of PM10 by
+rainfall in the Caribbean Basin. Additionally, we aim to determine whether
+there is a link between wet scavenging eﬃciency and African dust seasonal-
+ity.
+A newly developed method termed Multiplex Visibility Graph (MVG)
+was used to perform this study (Lacasa et al., 2015).
+The methodology
+3
+
+is based on a previous technique called Visibility Graph (VG), ﬁrst intro-
+duced by Lacasa et al. (2008). The main idea is to transform a time se-
+ries into a complex network, which can later be analysed, and to preserve
+some of the original information. Most of the variants of this method fo-
+cus on analysis of a single time series (Luque et al., 2009; Lan et al., 2015;
+Carmona-Cabezas et al., 2019b; Iacovacci and Lacasa, 2019) and have been
+applied to applications related to univariate time series (Mali et al., 2018;
+Carmona-Cabezas et al., 2019a; Plocoste et al., 2021b). However, owing to
+their stochastic properties, atmospheric processes are frequently related to
+numerous degrees of freedom; that is, their behaviour is governed by a mul-
+tivariate time series. To overcome this drawback, the MVG technique ap-
+plies the visibility approach to examine nonlinear multivariate time series
+(Lacasa et al., 2015). After transforming the time series into complex net-
+works, the results were used to build a multi-layered structure that could be
+analysed. Owing to recent advances in the theory of multilayer networks
+(Bianconi, 2013; Kivel¨a et al., 2014; Battiston et al., 2014; Lacasa et al.,
+2015), additional information can be retrieved from the original multivari-
+ate time series. To the best of our knowledge, no study has yet investigated
+PM10 wet scavenging using a multivariate time series. Here, 11 years of daily
+PM10 and rainfall data from the Guadeloupe archipelago were analysed.
+2. Site and data collection
+The Guadeloupe archipelago (16.25◦N −61.58◦W) is a French overseas
+region located in the central Caribbean Basin (Plocoste et al., 2019). The
+small territory (∼1,800 km2; 390,250 inhabitants) has an insular tropical
+climate with meteorological characteristics that vary by location due to mi-
+4
+
+croclimates (Bertin and Frangi, 2013). According to the K¨oppen-Geiger cli-
+mate classiﬁcation (Peel et al., 2007), Guadeloupe is in the “Af (tropical
+rainforest)” category.
+For this study, time series of Particulate Matter (PM10) and rainfall were
+used. Hourly PM10 data were provided by Gwad’Air Agency (http://www.gwadair.fr/),
+which manages the Guadeloupe air quality network. PM10 concentrations
+were measured using the Thermo Scientiﬁc Tapered Element Oscillating Mi-
+crobalance (TEOM) models 1400ab and 1400-FDMS. From 2005 to 2017,
+the air quality network-principally located at the centre of the island-has
+only one PM10 sensor at Pointe-`a-Pitre (16.2422◦N 61.5414◦W) from 2005
+to 2012 and at Baie-Mahault (16.2561◦N 61.5903◦W) since 2015. Because of
+the proximity between the air quality stations (∼5.5 km), PM10 measure-
+ments were performed under the same environmental conditions. Rainfall
+measurements were made by M´et´eo France at the international airport of
+Pˆole Cara¨ıbes at Abymes (16.2630◦N 61.5147◦W) using a Precis-Mecanique
+3070. As with the PM10 time series, the M´et´eo France observations are an
+hourly rainfall time series. Both measurements were made in the insular
+continental regime (Plocoste et al., 2018; Plocoste and Pav´on-Dom´ınguez,
+2020a). To assess the possible wet scavenging phenomenon over an entire
+day, hourly PM10 data were converted into daily average values, whereas
+rainfall data were converted into daily average and daily sum values. By
+computing the Pearson correlation coeﬃcient between the daily average
+PM10 and the daily rainfall data (sum then average), the same result was
+obtained (R= -0.14). Many studies demonstrate the cumulative eﬀect of
+rainfall on atmospheric processes (Winstanley, 1973; Johnson and Ciesielski,
+2000). In addition, to account for hours with and without rainfall (0 mm)
+in a day, the authors favoured the sum over the average for the stochastic
+5
+
+analysis. Thus, 11 years of simultaneous measurements between the daily
+average PM10 and the daily sum of rainfall were available for this study (a
+total of 3,849 points per time series). Figure 1 shows the sequence of the
+analysed time series. A slight lag appears to exist between the groups of
+peaks.
+0
+50
+100
+150
+200
+PM10 (µg/m3)
+2005
+2006
+2007
+2008
+2009
+2010
+2011
+0
+50
+100
+150
+Rainfall (mm)
+a)
+b)
+Figure 1:
+Illustration of simultaneous measurement sequences between (a) daily average
+PM10 concentrations and (b) the daily sum of rainfall between 2005 and 2011.
+6
+
+3. Theoretical framework
+3.1. Visibility graphs
+A graph is a mathematical object composed of a set of vertices (or nodes)
+which are connected by a set of lines or edges.
+A relatively recent tool
+called Visibility Graph (VG) allows the transformation of two-dimensional
+sets of points into graphs or networks (Lacasa et al., 2008). VG has great
+applicability for time series analysis and produces networks that inherit
+many of the properties of the original time series (Lacasa and Toral, 2010).
+The points in the time series correspond to the nodes in the graph. The
+edges of the graph (which connect nodes) are selected by checking which
+pairs of points meet the visibility criterion, which is as follows: two points
+from the time series (ta, ya) and (tb, yb) are connected only if any other point
+(tc, yc) located between them (ta < tc < tb) fulﬁls the following relationship
+(Lacasa et al., 2008):
+yc < ya + (yb −ya)tc −ta
+tb −ta
+(1)
+To construct the graph, this algorithm was applied to every pair of points
+in the signal. Two consecutive nodes are always connected, because there
+are no intermediate points.
+A graph is commonly expressed via its adjacency matrix, whose rows
+store the information of each node. If an element aij is equal to 1, nodes
+i and j are connected, the opposite is true if aij is equal to 0.
+In the
+case of a time series with N points, the resulting VG is represented by an
+N×N adjacency matrix, which has special properties that facilitate compu-
+tation; the adjacency matrix is symmetric (aij = aji) and hollow (aii = 0);
+additionally, all the nearest neighbours are visible to one other (aij = 1
+7
+
+for j = i ± 1).
+In general, the adjacency matrix has the following form
+(Carmona-Cabezas et al., 2019a):
+V =
+
+
+
+
+
+
+
+
+0
+1
+· · ·
+a1,N
+1
+0
+1
+...
+...
+1
+...
+1
+aN,1
+· · ·
+1
+0
+
+
+
+
+
+
+
+
+(2)
+3.2. Degree centrality
+Degree is the most commonly used of the principal properties that can be
+studied from a graph and one of the centrality parameters used to measure
+the importance of diﬀerent nodes in the graph with relation to the rest of
+them, using diﬀerent criteria (Latora et al., 2017). The degree of a node (ki)
+measures (in an undirected graph) the number of nodes that are reciprocally
+connected to a given node. By considering the adjacency matrix, the degree
+can be computed as ki = P
+j aij.
+Once the degree of every point is computed, a degree probability dis-
+tribution P(k) can be obtained for the graph (here, VG). P(k) accounts
+for the probability of having each value of degree in the graph. To obtain
+information on the nature of the series, the degree distribution is analysed
+(Lacasa et al., 2008; Mali et al., 2018; Pierini et al., 2012). If the right tail
+of the degree distribution (for high values of degree) can be ﬁtted by a power
+law such as P(k) ∝k−γ, the time series has a fractal nature (Lacasa et al.,
+2008). This part of the distribution is related to the hubs (nodes with the
+highest degrees), which are, by deﬁnition, rare in a graph. The exponent in
+the power law is the coeﬃcient, which is related to the Hurst exponent in
+series related to Brownian motion (Lacasa et al., 2009).
+8
+
+3.3. Multiplex visibility graph
+Another application of VGs in the context of multivariate analysis, is
+the use of multi-layered networks.
+This methodology was recently intro-
+duced as Multiplex Visibility Graph (MVG) (Lacasa et al., 2015). The main
+idea behind MVG is to build each of the layers M with VGs from the dif-
+ferent variables of the study. Therefore, as VG is represented by its ad-
+jacency matrix, so MVG is identiﬁed by a vector of adjacency matrices
+Ω= {A[1], A[2], ..., A[M]}. In the last expression, A[α] corresponds to the VG
+adjacency matrix of the VG in the α-dimension (or layer in the multiplex),
+which comes from the α variable of the multivariate time series (see Figure 2,
+where PM10 and rainfall sample time series are transformed for illustrative
+purposes).
+9
+
+Figure 2: PM10 and rainfall time series (left) are converted into complex networks with the VG algorithm (centre), which is described
+by an adjacency matrix (AP M10 and ARainfall)). Then, both are combined to design a two-layered MVG, called Ω(right image).
+10
+
+After construction, MVG is analysed to obtain information regarding
+the system of the time series. The two measures used for such purposes
+(Nicosia and Latora, 2015) and chosen for this work are Average Edge Over-
+lap (ω) and Interlayer Mutual Information (Iα,β). ω averages the number
+of layers on which a given edge between a pair of nodes can be found. Iα,β
+measure the correlations between the degree distributions of the given layers
+α and β. In this study, the layers correspond to daily PM10 concentrations
+and total rainfall.
+The computation is relatively straightforward after the MVG and degree
+distributions of each layer are obtained. Equation 3 shows the formula to
+compute the ω of a given MVG (Lacasa et al., 2015):
+ω =
+P
+i
+P
+j>i
+P
+α a[α]
+ij
+M P
+i
+P
+j>i
+
+1 −δ0,P
+α a[α]
+ij
+
+(3)
+All quantities were previously deﬁned in the text; δ0,P
+α a[α]
+ij corresponds to
+a Kronecker delta, which is 1 when P
+α a[α]
+ij is null, and otherwise 0. The
+maximum value of ω = 1 indicates that all the layers and, therefore, the time
+series are identical. Conversely, the minimum possible value of ω = 1/M
+indicates that every edge in the MVG can be found only in a singular layer.
+Overall, this quantity provides an idea of the expected number of layers on
+which an edge can be found. In addition, a high ω value indicates a high
+correlation in the microscopic structure of the signal (Lacasa et al., 2015).
+Additionally, Iα,β is deﬁned in Equation 4 (Lacasa et al., 2015):
+Iα,β =
+X
+k[α]
+X
+k[β]
+P(k[α], k[β])log P(k[α], k[β])
+P(k[α])P(k[β])
+(4)
+11
+
+where P(k[α], k[β]) is the joint probability of having a degree of k[α] in layers
+α and k[β] in layer β that can be obtained using the following formula:
+P(k[α], k[β]) =
+Nk[α],k[β]
+N
+(5)
+where Nk[α],k[β] is the number of nodes with a degree of k[α] in layer α
+and k[β] in layer β; Nk[α],k[β] is divided by N, which is the total number of
+nodes or points in the time series.
+4. Results and Discussion
+4.1. Preliminary analysis
+We conducted a preliminary analysis to investigate PM10 and rainfall
+seasonality throughout the year. Figure 3 illustrates the monthly average
+PM10 concentrations and the monthly summation of rainfall data over 11-y
+period. Seasonality is observed in both curves, with a high dust season from
+May to September (Plocoste and Pav´on-Dom´ınguez, 2020b) and a rainy sea-
+son from July to November (Bertin and Frangi, 2013). Van der Does et al.
+(2020) observed the same behaviour for both parameters in Barbados. The
+Inter-Tropical Convergence Zone (ITCZ) dynamics throughout the year play
+a key role in these seasonal behaviours.
+In summer, the activation of
+dust sources from the Saharan and Sahelian deserts coupled with the up-
+ward northward movement of the ITCZ (10 −20◦N) (Moulin et al., 1997;
+Adams et al., 2012; Euphrasie-Clotilde et al., 2020) allows the transport of
+dust plumes from the African coast to the Caribbean area (Petit et al., 2005;
+Prospero et al., 2014; Euphrasie-Clotilde et al., 2021). According to a statis-
+tical study lasting over a decade (Plocoste et al., 2020b), average PM10 and
+kurtosis are 1.5 times higher and 5.5 times lower during the high dust season,
+12
+
+respectively, due to the recurrence of dust plumes compared with the low
+dust season. From October to April, PM10 concentrations are primarily re-
+lated to marine aerosols (Clergue et al., 2015; Rastelli et al., 2017), because
+of the insular context of the Guadeloupe archipelago. These aerosols are
+advected by trade winds which blow continuously from east to west across
+the Atlantic Ocean (Plocoste et al., 2014; Plocoste and Pav´on-Dom´ınguez,
+2020a). Consequently, the contribution of marine aerosols to PM10 con-
+centrations remains constant throughout the year. Figure 3 shows that the
+standard deviations exhibit their lowest values from October to April. Thus,
+marine aerosols are one of the primary constituents of the PM10 background
+atmosphere (Plocoste et al., 2021a). The ITCZ movement toward the north
+generates precipitation carried by trade winds during the boreal summer
+(the rainy season) (Giannini et al., 2000; Mu˜noz et al., 2008). During the
+boreal winter (mid-January to March), the ITCZ awakens the Azores anti-
+cyclone due to its southerly movement, which reduces cloud generation (the
+dry season) (Bertin and Frangi, 2013).
+4.2. Degree distribution
+4.2.1. Overall analysis
+Before performing a profound analysis of the impact of rainfall on PM10
+concentrations in the MVG frame, both time series were analysed sepa-
+rately in the VG frame. The classical ﬁrst approach is to study the degree
+distribution P(k) of each time series. Figure 4(a) and 4(b) show the degree
+distributions obtained for the PM10 and rainfall time series over the 11-y
+period, respectively. Both plots highlight the fractal nature of the time se-
+ries. The tail region of P(k) in the log-log plot can be ﬁtted by a power law,
+such as P(k) ∝k−γ, where γP M10 and γrainfall equal 3.11, and 2.84, respec-
+13
+
+Jan
+Feb
+Mar
+Apr
+May
+Jun
+Jul
+Aug
+Sep
+Oct
+Nov
+Dec
+15
+20
+25
+30
+35
+40
+45
+500
+1000
+1500
+2000
+2500
+PM10
+Rainfall
+Figure 3:
+Monthly conditional average of PM10 and rainfall time series over the 11-y
+period; here, a representative year for one decade.
+The whiskers depict the standard
+deviations.
+tively. In the literature, the fractal nature of the PM10 (Dong et al., 2017;
+Nikolopoulos et al., 2019; Plocoste et al., 2021b) and rainfall (Olsson et al.,
+1993; Breslin and Belward, 1999; Maskey et al., 2016) data has been ob-
+served.
+To assess the behaviour of the highest degree (so-called hubs), the time
+series values versus their degrees (v-k plot) were analysed for each parame-
+ter as introduced by Pierini et al. (2012). Figure 4(c) and 4(d) illustrate the
+v-k plot for the PM10 and rainfall data, respectively. In both cases, the hubs
+were related to the highest values of each time series. Carmona-Cabezas et al.
+(2019a) found the same tendency for hubs of a tropospheric ozone time series
+in Cadiz, Spain. The value of precipitation has an almost linear relation-
+ship to the degree of rainfall. Thus, the degree of the rainfall nodes can be
+used to identify both high and low rainfall values. In addition, the PM10
+14
+
+101
+102
+10-4
+10-3
+10-2
+10-1
+P(k)
+PM10
+101
+102
+10-4
+10-3
+10-2
+10-1
+P(k)
+Rainfall
+0
+50
+100
+150
+k
+0
+50
+100
+150
+200
+ (µg/m3)
+0
+50
+100
+150
+200
+250
+300
+k
+0
+50
+100
+150
+200
+250
+ (mm)
+ = 3.11
+ = 2.84
+c)
+d)
+b)
+a)
+Figure 4:
+At the top, degree distribution of the visibility graph for (a) PM10 and (b)
+rainfall in a log-log plot for all the data. A the bottom, the relationship between the time
+series values and their degrees in (c) PM10 and (d) rainfall.
+dot distribution appears more heterogeneous, because of the wide annual
+variability of African dust haze (Plocoste et al., 2017, 2020a).
+4.2.2. Monthly analysis
+We use the ﬁrst centrality measure (degree centrality) to study the im-
+portance of the node for PM10 and rainfall throughout the year (Carmona-Cabezas et al.,
+2019a). Figure 5(a) and 5(b) highlight the monthly behaviour of the aver-
+age degree and standard deviation from the degree distribution of the PM10
+15
+
+and rainfall time series.
+A trend merged in both curves.
+The decay of
+PM10 hubs begins at the onset of the high dust season (May-September)
+(Plocoste and Pav´on-Dom´ınguez, 2020b; Plocoste et al., 2021b); the decay
+for rainfall hubs begins at the onset of the hurricane season (June–October)
+(Tartaglione et al., 2003; Dunion, 2011) in the Caribbean Basin. Figure 3
+shows that the monthly behaviour of PM10 and rainfall over the period of a
+decade conﬁrms this trend, increases in PM10 and rainfall begin in May and
+June, respectively. The above-mentioned results show the impact of season-
+ality on node distribution and highlight that the VG frame is sensitive to
+time-series behaviour.
+4.3. Multiplex visibility graph
+After performing the analysis of the PM10 and rainfall univariate time
+series in the VG frame (i.e., transformation of the time series into a complex
+network), both complex networks were combined to design a two-layered
+multivariate network. Here, we investigate the wet scavenging process of
+PM10 by rainfall. The authors focused on two approaches, which demon-
+strate the abundance of single edges across layers (average edge overlap) and
+the presence of interlayer correlations of the node degrees (interlayer mutual
+information) (Lacasa et al., 2015; Nicosia and Latora, 2015). The ﬁrst ap-
+proach measures the overall coherence in the multivariate time series, and
+the second evaluates structural correlation.
+4.3.1. Average edge overlap analysis
+Figure 6 illustrates the monthly average edge overlap values (ω) and their
+standard deviations over the 11-y period. ω > 1/M and ω < 1; thus, the
+two layers are diﬀerent, and edges can be found in both layers. These two
+16
+
+Jan
+Feb
+Mar
+Apr
+May
+Jun
+Jul
+Aug
+Sep
+Oct
+Nov
+Dec
+6
+7
+8
+9
+10
+11
+12
+13
+Average degree
+PM10
+a)
+Jan
+Feb
+Mar
+Apr
+May
+Jun
+Jul
+Aug
+Sep
+Oct
+Nov
+Dec
+6
+7
+8
+9
+10
+11
+12
+13
+Average degree
+Rainfall
+b)
+Figure 5: Computed average degree and standard deviation from the degree distribution
+of each month over the 11-y period for (a) PM10 and (b) rainfall. Each monthly value is
+the average of the computed 11-y values.
+criteria prove that there is an interaction between PM10 and rainfall in the
+MVG frame. ω is a sensitive parameter with small variations (increases and
+decreases) (Lacasa et al., 2015).
+Here, ω was almost constant from Jan-
+uary to June. ω values are higher from July to December and peaked in
+September, indicating a greater correlation in the microscopic structure of
+the signal (Lacasa et al., 2015; Carmona-Cabezas et al., 2020) that repre-
+17
+
+sents interaction on the order of 1-d, which is the minimum time resolution.
+Therefore, at the 1-d scale, the wet scavenging process of PM10 by rainfall
+is more signiﬁcant during the last six months of the year. A 20-y precip-
+itation study in the Luquillo Mountains of Puerto Rico McClintock et al.
+(2019) also found a summer maximum in wet dust deposition.
+Physi-
+cally, these ﬁndings make sense, as the summer corresponds to the high
+dust (Plocoste and Pav´on-Dom´ınguez, 2020b) and rainy (Bertin and Frangi,
+2013) seasons in the Caribbean Basin. The atmosphere is loaded with dust,
+and the impact of rainfall on PM10 is greater. Tiwari et al. (2012) observed
+that low PM10 concentrations in New Delhi occurred during the monsoon
+(August-September) season due to the washout phenomenon. A 10-y study
+of air pollutants (PM10, CO, NO2, SO2, and O3) and precipitation over
+South Korea highlighted that PM10 is most eﬀectively scavenged by sum-
+mertime rainfall due to its particulate nature (Yoo et al., 2014). Because
+of data availability, determining which wet scavenging process (rainout or
+washout) is more eﬃcient is diﬃcult (Pillai et al., 2002; Tombette et al.,
+2009; Bayraktar et al., 2010). According to Sonwani and Kulshrestha (2019),
+the level of aerosols in and under clouds at the time of precipitation is cru-
+cial, as it determines whether both phenomena occur simultaneously.
+During the high dust season, the wet scavenging phenomenon natu-
+rally reduces PM10 concentrations in the atmosphere. Due to the impact
+on respiratory and cardiovascular diseases, diminishing PM10 concentra-
+tions after dust outbreaks is crucial (Gurung et al., 2017; Zhang et al., 2017;
+Momtazan et al., 2019; Feng et al., 2019). African Easterly Waves (AEWs)
+(Prospero and Carlson, 1981; Plocoste et al., 2021a), which precede and fol-
+low the dust plumes, are the principal generator of precipitation during the
+high dust period (Dominguez et al., 2020) and regulate PM10 concentrations
+18
+
+in the Caribbean area.
+Jan
+Feb
+Mar
+Apr
+May
+Jun
+Jul
+Aug
+Sep
+Oct
+Nov
+Dec
+0.6
+0.61
+0.62
+0.63
+0.64
+0.65
+0.66
+0.67
+0.68
+0.69
+0.7
+Average edge overlap
+Figure 6:
+11-y monthly average edge overlap values (ω) and their standard deviations.
+4.3.2. Interlayer mutual information analysis
+The relationship between PM10 concentrations and rainfall can also be
+determined by studying the node distribution in the MVG layers. Equa-
+tion 4 shows that the joint probability between the PM10 and rainfall nodes
+(P(k[P M10], k[Rainfall])) is a building block of the interlayer mutual informa-
+tion (IP M10,Rainfall). Thus, we ﬁrst computed the joint probability before
+performing the interlayer mutual information analysis.
+Figure 7(a) and 7(b) illustrate the quantity P(k[P M10], k[Rainfall]) for
+the low dust season (October to April) and the high dust season (May to
+September) for the 11-y period. In these Figures, the colours indicate the
+probability that a node in the MVG has a degree equal to kP M10 and kRainfall
+in the layers corresponding to PM10 and rainfall VG, respectively. Overall,
+the most likely combinations of k values were those below a value of 20. For
+19
+
+higher degrees (k > 60), P(k[P M10], k[Rainfall]) becomes less signiﬁcant. The
+probability asymptotically approaches both the X and Y axes. According to
+Carmona-Cabezas et al. (2020), as the degree increases, the probability of
+ﬁnding kP M10 and kRainfall with close values decreases exponentially. This
+demonstrates alternation between the hubs of the two time series. Due to the
+wet scavenging phenomenon, high daily values of PM10 and rainfall are less
+likely to occur on the same day. Figure 7(a-b) shows a diﬀerence in behaviour
+between both seasons. A concentration of probability is more pronounced
+in the high dust season (Figure 7(b)), and higher values in a low-degree
+area add red to the plot. In addition, the overall shape of the plot shrinks
+for the same period and has shorter tails. These results are consistent with
+those obtained for ω. The impact of rainfall on PM10 concentrations in the
+atmosphere more loaded with dust from May to September is more eﬃcient
+because of a more signiﬁcant wet scavenging phenomenon (Tiwari et al.,
+2012; Yoo et al., 2014).
+Figure 7(c) shows the monthly IP M10,Rainfall computed over the 11-y
+period. The interlayer mutual information, which provides an idea of the
+typical amount of information ﬂow in the system (Lacasa et al., 2015), is
+directly related to the joint probability and also measures the correlation
+between degrees in the system.
+Thus, the interlayer mutual information
+may indicate the degree of correlation among the distributions and, hence,
+the behaviour of the two series.
+Because IP M10,Rainfall > 1, kP M10 and
+kRainfall always have higher correlations in May (IP M10,Rainfall = 1.25), Au-
+gust (IP M10,Rainfall = 1.14) and November (IP M10,Rainfall = 1.15). A study
+in the Caribbean basin by Gouirand et al. (2020) showed that the averages
+transition dates from winter to summer and from summer to winter occurred
+on average 13 May (± 9 days) and 26 October (± 12 days), respectively.
+20
+
+These transition periods correspond to comparatively high IP M10,Rainfall
+values. Due to the standard deviations, the winter to summer transition
+always occurs in May, whereas the summer to winter transition can occur
+in October or November. This could explain why the May peak was much
+larger. In addition, May corresponds to the beginning of the high dust season
+(Plocoste and Pav´on-Dom´ınguez, 2020b), whereas November corresponds to
+the end of the rainy season (Bertin and Frangi, 2013). Therefore, these pe-
+riods feature strong inter-layer correlations between kP M10 and kRainfall.
+5. Conclusion
+In conclusion, our results clearly highlight the eﬃciency of multilayer
+complex networks for tracking the correlations between particulate matter
+(PM10) and rainfall time series. The aim of this study was to investigate the
+wet scavenging phenomenon of PM10 by rainfall in the Caribbean area using
+MVGs. We highlighted the fractal nature of both time series and found that
+the highest degrees (hubs) are related to the highest values in the VG frame.
+The relationship between the values and degrees of PM10 is less homoge-
+neous than that of rainfall due to annual intermittency. The monthly degree
+centrality analysis indicated the seasonality of both time series. On the 1-d
+scale, the average edge overlap (ω) monthly analysis highlighted the wet
+scavenging process of PM10 by rainfall throughout the year. However, this
+process seems to be more signiﬁcant during the last six months of the year,
+when the high dust and rainy seasons are juxtaposed. The joint probability
+results between the PM10 and rainfall nodes according to African dust sea-
+sonality conﬁrmed the trend observed from the ω values. The atmosphere is
+loaded with dust during the high dust season, and rainfall helps restore the
+21
+
+PM10 atmospheric balance. Thus, the overall coherence in the multivari-
+ate time series was higher from July to December. The interlayer mutual
+information (IP M10Rainfall) monthly analysis showed a correlation between
+PM10 and rainfall structures throughout the year. IP M10Rainfall values were
+higher during the transition periods between winter and summer (and vice
+versa) in the Caribbean Basin. We assume that the transition periods allow
+the homogenisation of the multivariate time series before the usual trend
+is resumed. To better quantify the impact of the wet scavenging process
+on PM10, a future analysis of rainwater chemistry (organic and elemental
+carbon) related to rainfall intensity will be conducted.
+Acknowledgements
+The authors are very grateful to the anonymous reviewers for their valu-
+able comments and constructive suggestions, which helped us to improve
+the quality of the paper substantially.
+The authors would like to thank
+Guadeloupe air quality network (Gwad’Air) and the French Weather Oﬃce
+(M´et´eo France Guadeloupe) for providing air quality and meteorological
+data. A special thanks to Mr. France-Nor Brute (Data Scientist) for data
+assistance. Group TEP-957 authors gratefully acknowledge support of the
+Research Program of the University of Cordoba (2021), Spain.
+Disclosure statement
+No potential conﬂict of interest was reported by the authors.
+22
+
+Funding
+The authors declare that they have not received any fund for the present
+paper. The paper is the sole work of the authors and is not a part/product
+of any project.
+23
+
+0
+20
+40
+60
+80
+kPM10
+0
+10
+20
+30
+40
+50
+60
+70
+80
+kRainfall
+0.002
+0.004
+0.006
+0.008
+0.01
+0.012
+0.014
+0.016
+0.018
+0.02
+P (kRainfall kPM10)
+a)
+0
+20
+40
+60
+80
+kPM10
+0
+10
+20
+30
+40
+50
+60
+70
+80
+kRainfall
+0.002
+0.004
+0.006
+0.008
+0.01
+0.012
+0.014
+0.016
+0.018
+0.02
+P (kRainfall kPM10)
+b)
+Jan
+Feb
+Mar
+Apr
+May
+Jun
+Jul
+Aug
+Sep
+Oct
+Nov
+Dec
+0.95
+1
+1.05
+1.1
+1.15
+1.2
+1.25
+1.3
+Interlayer mutual information
+c)
+Figure 7: Illustration of the joint probability distribution of the degrees of both layers for
+(a) the low dust season (October to April) and (b) the high dust season (May to Septem-
+ber) over an 11-y period. Each isoline shows the probability that the degree is precisely
+kP M10 and kRainfall at the same time node in the VG frame; (c) monthly interlayer mu-
+tual information values (IP M10Rainfall) and their standard deviations computed over an
+11-y period.
+24
+
+References
+References
+Adams,
+A.M., Prospero,
+J.M., Zhang,
+C..
+CALIPSO-derived three-
+dimensional structure of aerosol over the Atlantic Basin and adjacent
+continents. Journal of Climate 2012;25(19):6862–6879.
+Atkinson, R., Kang, S., Anderson, H., Mills, I., Walton, H.. Epidemiolog-
+ical time series studies of PM2.5 and daily mortality and hospital admis-
+sions: a systematic review and meta-analysis. Thorax 2014;69(7):660–665.
+Battiston, F., Nicosia, V., Latora, V.. Structural measures for multiplex
+networks. Physical Review E 2014;89(3):032804.
+Bayraktar,
+H., Turalio˘glu,
+F.S., Tuncel,
+G.. Average mass concentra-
+tions of TSP, PM10 and PM2.5 in Erzurum urban atmosphere, Turkey.
+Stochastic Environmental Research and Risk Assessment 2010;24(1):57–
+65.
+Bertin, A., Frangi, J.. Contribution to the study of the wind and solar radi-
+ation over guadeloupe. Energy Conversion and Management 2013;75:593–
+602.
+Bianconi,
+G.. Statistical mechanics of multiplex networks: Entropy and
+overlap. Physical Review E 2013;87(6):062806.
+Breslin, M., Belward, J.. Fractal dimensions for rainfall time series. Math-
+ematics and computers in simulation 1999;48(4-6):437–446.
+Carmona-Cabezas,
+R., Ariza-Villaverde,
+A.B., Guti´errez de Rav´e,
+E.,
+Jim´enez-Hornero, F.J.. Visibility graphs of ground-level ozone time series:
+25
+
+A multifractal analysis. Science of The Total Environment 2019a;661:138–
+147.
+Carmona-Cabezas,
+R., G´omez-G´omez,
+J., Ariza-Villaverde,
+A.B.,
+Guti´errez de Rav´e,
+E., Jim´enez-Hornero,
+F.J..
+Multiplex Visibil-
+ity Graphs as a complementary tool for describing the relation be-
+tween ground level O3 and No2.
+Atmospheric Pollution Research
+2020;11(1):205–212.
+Carmona-Cabezas, R., G´omez-G´omez, J., Guti´errez de Rav´e, E., Jim´enez-
+Hornero, F.J.. A sliding window-based algorithm for faster transforma-
+tion of time series into complex networks. Chaos: An Interdisciplinary
+Journal of Nonlinear Science 2019b;29(10):103121.
+Clergue,
+C., Dellinger,
+M., Buss,
+H., Gaillardet,
+J., Benedetti,
+M.,
+Dessert, C.. Inﬂuence of atmospheric deposits and secondary minerals on
+Li isotopes budget in a highly weathered catchment, Guadeloupe (Lesser
+Antilles). Chemical Geology 2015;414:28–41.
+Dallarosa, J.B., Teixeira, E.C., Pires, M., Fachel, J.. Study of the proﬁle of
+polycyclic aromatic hydrocarbons in atmospheric particles (PM10) using
+multivariate methods. Atmospheric Environment 2005;39(35):6587–6596.
+Van der Does,
+M., Brummer, G.J.A., van Crimpen, F.C., Korte,
+L.F.,
+Mahowald,
+N.M., Merkel,
+U., Yu,
+H., Zuidema,
+P., Stuut,
+J.B.W..
+Tropical rains controlling deposition of Saharan dust across the North
+Atlantic Ocean. Geophysical Research Letters 2020;47(5):e2019GL086867.
+Dominguez, C., Done, J.M., Bruy`ere, C.L.. Easterly wave contributions to
+26
+
+seasonal rainfall over the tropical Americas in observations and a regional
+climate model. Climate Dynamics 2020;54(1-2):191–209.
+Dong, Q., Wang, Y., Li, P.. Multifractal behavior of an air pollutant time
+series and the relevance to the predictability. Environmental Pollution
+2017;222:444–457.
+Dunion, J.P.. Rewriting the climatology of the tropical North Atlantic and
+Caribbean Sea atmosphere. Journal of Climate 2011;24(3):893–908.
+Engelstaedter, S., Tegen, I., Washington, R.. North African dust emissions
+and transport. Earth-Science Reviews 2006;79(1-2):73–100.
+Euphrasie-Clotilde, L., Plocoste, T., Brute, F.N.. Particle Size Analysis
+of African Dust Haze over the Last 20 Years: A Focus on the Extreme
+Event of June 2020. Atmosphere 2021;12(4):502.
+Euphrasie-Clotilde,
+L., Plocoste,
+T., Feuillard,
+T., Velasco-Merino,
+C.,
+Mateos, D., Toledano, C., Brute, F.N., Bassette, C., Gobinddass, M..
+Assessment of a new detection threshold for PM10 concentrations linked
+to African dust events in the Caribbean Basin. Atmospheric Environment
+2020;224:117354.
+Feng, W., Li, H., Wang, S., Van Halm-Lutterodt, N., An, J., Liu, Y., Liu,
+M., Wang, X., Guo, X.. Short-term PM10 and emergency department
+admissions for selective cardiovascular and respiratory diseases in Beijing,
+China. Science of The Total Environment 2019;657:213–221.
+Giannini,
+A., Kushnir,
+Y., Cane,
+M.A..
+Interannual variability of
+Caribbean rainfall, ENSO, and the Atlantic Ocean. Journal of Climate
+2000;13(2):297–311.
+27
+
+Gonz´alez, C., Aristiz´abal, B.. Acid rain and particulate matter dynamics
+in a mid-sized Andean city: The eﬀect of rain intensity on ion scavenging.
+Atmospheric Environment 2012;60:164–171.
+Gouirand,
+I., Moron,
+V., Sing,
+B..
+Seasonal atmospheric transi-
+tions in the Caribbean basin and Central America. Climate Dynamics
+2020;55(7):1809–1828.
+Gurung,
+A., Son,
+J.Y., Bell,
+M.L.. Particulate matter and risk of hos-
+pital admission in the Kathmandu Valley, Nepal: a case-crossover study.
+American journal of epidemiology 2017;186(5):573–580.
+Iacovacci,
+J., Lacasa,
+L.. Visibility graphs for image processing. IEEE
+transactions on pattern analysis and machine intelligence 2019;42(4):974–
+987.
+Johnson, R.H., Ciesielski, P.E.. Rainfall and radiative heating rates from
+TOGA COARE atmospheric budgets. Journal of the atmospheric sciences
+2000;57(10):1497–1514.
+Kidd, C., Huﬀman, G.. Global precipitation measurement. Meteorological
+Applications 2011;18(3):334–353.
+Kim,
+J.E., Han,
+Y.J., Kim,
+P.R., Holsen,
+T.M..
+Factors inﬂuencing
+atmospheric wet deposition of trace elements in rural Korea. Atmospheric
+Research 2012;116:185–194.
+Kivel¨a,
+M., Arenas,
+A., Barthelemy,
+M., Gleeson,
+J.P., Moreno,
+Y., Porter,
+M.A..
+Multilayer networks.
+Journal of complex networks
+2014;2(3):203–271.
+28
+
+Kumar,
+A., Abouchami,
+W., Galer,
+S., Garrison,
+V., Williams,
+E.,
+Andreae,
+M..
+A radiogenic isotope tracer study of transatlantic dust
+transport from Africa to the Caribbean.
+Atmospheric Environment
+2014;82:130–143.
+Lacasa,
+L., Luque,
+B., Ballesteros,
+F., Luque,
+J., Nuno,
+J.C.. From
+time series to complex networks: The visibility graph. Proceedings of the
+National Academy of Sciences 2008;105(13):4972–4975.
+Lacasa, L., Luque, B., Luque, J., Nuno, J.C.. The visibility graph: A new
+method for estimating the Hurst exponent of fractional Brownian motion.
+EPL (Europhysics Letters) 2009;86(3):30001.
+Lacasa,
+L., Nicosia,
+V., Latora,
+V.. Network structure of multivariate
+time series. Scientiﬁc reports 2015;5:15508.
+Lacasa,
+L., Toral,
+R.. Description of stochastic and chaotic series using
+visibility graphs. Physical Review E 2010;82(3):036120.
+Lan, X., Mo, H., Chen, S., Liu, Q., Deng, Y.. Fast transformation from
+time series to visibility graphs. Chaos: An Interdisciplinary Journal of
+Nonlinear Science 2015;25(8):083105.
+Laouali, D., Galy-Lacaux, C., Diop, B., Delon, C., Orange, D., Lacaux,
+J., Akpo, A., Lavenu, F., Gardrat, E., Castera, P.. Long term monitor-
+ing of the chemical composition of precipitation and wet deposition ﬂuxes
+over three Sahelian savannas. Atmospheric environment 2012;50:314–327.
+Latora, V., Nicosia, V., Russo, G.. Complex networks: principles, methods
+and applications. Cambridge University Press, 2017.
+29
+
+Lu, F., Xu, D., Cheng, Y., Dong, S., Guo, C., Jiang, X., Zheng, X..
+Systematic review and meta-analysis of the adverse health eﬀects of ambi-
+ent PM2.5 and PM10 pollution in the Chinese population. Environmental
+research 2015;136:196–204.
+Luque,
+B., Lacasa,
+L., Ballesteros,
+F., Luque,
+J.. Horizontal visibil-
+ity graphs: Exact results for random time series.
+Physical Review E
+2009;80(4):046103.
+Mali, P., Manna, S., Mukhopadhyay, A., Haldar, P., Singh, G.. Multifrac-
+tal analysis of multiparticle emission data in the framework of visibility
+graph and sandbox algorithm. Physica A: Statistical Mechanics and its
+Applications 2018;493:253–266.
+Maskey, M., Puente, C., Sivakumar, B., Cortis, A.. Encoding daily rainfall
+records via adaptations of the fractal multifractal method.
+Stochastic
+Environmental Research and Risk Assessment 2016;30(7):1917–1931.
+McClintock,
+M., McDowell,
+W., Gonz´alez,
+G., Schulz,
+M., Pett-Ridge,
+J.. African dust deposition in Puerto Rico: Analysis of a 20-year rainfall
+chemistry record and comparison with models. Atmospheric Environment
+2019;216:116907.
+Momtazan,
+M., Geravandi,
+S., Rastegarimehr,
+B., Valipour,
+A., Ran-
+jbarzadeh, A., Yari, A.R., Dobaradaran, S., Bostan, H., Farhadi, M.,
+Darabi,
+F., Khaniabadi,
+Y.O., Mohammadi,
+M.J.. An investigation
+of particulate matter and relevant cardiovascular risks in Abadan and
+Khorramshahr in 2014–2016. Toxin reviews 2019;38(4):290–297.
+Moulin, C., Lambert, C.E., Dulac, F., Dayan, U.. Control of atmospheric
+30
+
+export of dust from North Africa by the North Atlantic Oscillation. Nature
+1997;387(6634):691–694.
+Mu˜noz,
+E., Busalacchi,
+A.J., Nigam,
+S., Ruiz-Barradas,
+A..
+Winter
+and summer structure of the Caribbean low-level jet. Journal of Climate
+2008;21(6):1260–1276.
+Murakami,
+M., Kimura, T., Magono,
+C., Kikuchi, K.. Observations of
+precipitation scavenging for water-soluble particles. Journal of the Mete-
+orological Society of Japan Ser II 1983;61(3):346–358.
+Nicosia, V., Latora, V.. Measuring and modeling correlations in multiplex
+networks. Physical Review E 2015;92(3):032805.
+Nikolopoulos, D., Moustris, K., Petraki, E., Koulougliotis, D., Cantzos,
+D.. Fractal and Long-Memory Traces in PM10 Time Series in Athens,
+Greece. Environments 2019;6(3):29.
+Olsson, J., Niemczynowicz, J., Berndtsson, R.. Fractal analysis of high-
+resolution rainfall time series. Journal of Geophysical Research: Atmo-
+spheres 1993;98(D12):23265–23274.
+Olszowski,
+T.. Comparison of PM10 washout on urban and rural areas.
+Ecological Chemistry and Engineering S 2017;24(3):381–395.
+Ouyang,
+W., Guo,
+B., Cai,
+G., Li,
+Q., Han,
+S., Liu,
+B., Liu,
+X..
+The washing eﬀect of precipitation on particulate matter and the pollu-
+tion dynamics of rainwater in downtown Beijing.
+Science of the Total
+Environment 2015;505:306–314.
+Peel,
+M.C., Finlayson,
+B.L., McMahon,
+T.A.. Updated world map of
+31
+
+the k¨oppen-geiger climate classiﬁcation.
+Hydrology and Earth System
+Sciences 2007;11:1633–1644.
+Perry, K.D., Cahill, T.A., Eldred, R.A., Dutcher, D.D., Gill, T.E.. Long-
+range transport of North African dust to the eastern United States. Jour-
+nal of Geophysical Research: Atmospheres 1997;102(D10):11225–11238.
+Petit, R., Legrand, M., Jankowiak, I., Molini´e, J., Asselin de Beauville,
+C., Marion,
+G., Mansot,
+J..
+Transport of Saharan dust over the
+Caribbean Islands: Study of an event. Journal of Geophysical Research:
+Atmospheres 2005;110:D18S09.
+Pierini, J.O., Lovallo,
+M., Telesca,
+L.. Visibility graph analysis of wind
+speed records measured in central argentina. Physica A: Statistical Me-
+chanics and its Applications 2012;391(20):5041–5048.
+Pillai,
+P.S., Babu,
+S.S., Moorthy,
+K.K..
+A study of pm, pm10 and
+pm2.5 concentration at a tropical coastal station. Atmospheric Research
+2002;61(2):149–167.
+Plocoste, T., Calif, R.. Spectral Observations of PM10 Fluctuations in the
+Hilbert Space. In: Functional Calculus. IntechOpen; 2019. p. 1–13.
+Plocoste,
+T., Calif,
+R., Euphrasie-Clotilde,
+L., Brute,
+F.N..
+Investi-
+gation of local correlations between particulate matter (PM10) and air
+temperature in the Caribbean basin using Ensemble Empirical Mode De-
+composition. Atmospheric Pollution Research 2020a;11(10):1692–1704.
+Plocoste, T., Calif, R., Euphrasie-Clotilde, L., Brute, F.N.. The statistical
+behavior of PM10 events over guadeloupean archipelago: Stationarity,
+modelling and extreme events. Atmospheric Research 2020b;241:104956.
+32
+
+Plocoste, T., Calif, R., Jacoby-Koaly, S.. Temporal multiscaling charac-
+teristics of particulate matter PM10 and ground-level ozone O3 concen-
+trations in Caribbean region. Atmospheric Environment 2017;169:22–35.
+Plocoste,
+T., Calif,
+R., Jacoby-Koaly,
+S.. Multi-scale time dependent
+correlation between synchronous measurements of ground-level ozone and
+meteorological parameters in the Caribbean Basin. Atmospheric Environ-
+ment 2019;211:234–246.
+Plocoste, T., Carmona-Cabezas, R., Jim´enez-Hornero, F.J., Guti´errez de
+Rav´e,
+E.. Background PM10 atmosphere: In the seek of a multifrac-
+tal characterization using complex networks. Journal of Aerosol Science
+2021a;155:105777.
+Plocoste, T., Carmona-Cabezas, R., Jim´enez-Hornero, F.J., Guti´errez de
+Rav´e, E., Calif, R.. Multifractal characterisation of particulate matter
+(PM10) time series in the Caribbean basin using visibility graphs. Atmo-
+spheric Pollution Research 2021b;12(1):100–110.
+Plocoste, T., Dorville, J.F., Monjoly, S., Jacoby-Koaly, S., Andr´e, M..
+Assessment of Nitrogen Oxides and Ground-Level Ozone behavior in a
+dense air quality station network: Case study in the Lesser Antilles Arc.
+Journal of the Air & Waste Management Association 2018;68(12):1278–
+1300.
+Plocoste,
+T., Jacoby-Koaly,
+S., Molini´e,
+J., Petit,
+R.. Evidence of the
+eﬀect of an urban heat island on air quality near a landﬁll. Urban Climate
+2014;10:745–757.
+Plocoste,
+T., Pav´on-Dom´ınguez,
+P..
+Multifractal detrended cross-
+33
+
+correlation analysis of wind speed and solar radiation. Chaos: An In-
+terdisciplinary Journal of Nonlinear Science 2020a;30(11):113109.
+Plocoste,
+T., Pav´on-Dom´ınguez,
+P.. Temporal scaling study of particu-
+late matter (PM10) and solar radiation inﬂuences on air temperature in
+the Caribbean basin using a 3D joint multifractal analysis. Atmospheric
+Environment 2020b;222:117115.
+Prospero,
+J.M..
+Long-range transport of mineral dust in the global at-
+mosphere: Impact of African dust on the environment of the southeast-
+ern United States.
+Proceedings of the National Academy of Sciences
+1999;96(7):3396–3403.
+Prospero,
+J.M., Carlson,
+T.N.. Saharan air outbreaks over the tropical
+North Atlantic. In: Weather and Weather Maps. Springer; 1981. p. 677–
+691.
+Prospero, J.M., Collard, F.X., Molini´e, J., Jeannot, A.. Characterizing
+the annual cycle of African dust transport to the Caribbean Basin and
+South America and its impact on the environment and air quality. Global
+Biogeochemical Cycles 2014;28:757–773.
+Prospero, J.M., Lamb, P.J.. African droughts and dust transport to the
+Caribbean: Climate change implications. Science 2003;302(5647):1024–
+1027.
+Rastelli,
+E., Corinaldesi,
+C., Dell’Anno,
+A., Martire,
+M.L., Greco,
+S.,
+Facchini,
+M.C., Rinaldi,
+M., O’Dowd,
+C., Ceburnis,
+D., Danovaro,
+R.. Transfer of labile organic matter and microbes from the ocean sur-
+34
+
+face to the marine aerosol: an experimental approach. Scientiﬁc reports
+2017;7(1):11475.
+Schneider, U., Becker, A., Finger, P., Meyer-Christoﬀer, A., Ziese, M.,
+Rudolf, B.. GPCC’s new land surface precipitation climatology based on
+quality-controlled in situ data and its role in quantifying the global water
+cycle. Theoretical and Applied Climatology 2014;115(1-2):15–40.
+Schumann, T.. Large discrepancies between theoretical and ﬁeld-determined
+scavenging coeﬃcients. Journal of Aerosol Science 1989;20(8):1159–1162.
+Singh,
+S., Elumalai,
+S.P., Pal,
+A.K.. Rain pH estimation based on the
+particulate matter pollutants and wet deposition study. Science of the
+total environment 2016;563:293–301.
+Sonwani,
+S., Kulshrestha,
+U.C.. PM10 carbonaceous aerosols and their
+real-time wet scavenging during monsoon and non-monsoon seasons at
+Delhi, India. Journal of Atmospheric Chemistry 2019;76(3):171–200.
+Tartaglione,
+C.A., Smith,
+S.R., O’Brien,
+J.J..
+ENSO impact on
+hurricane landfall probabilities for the Caribbean.
+Journal of Climate
+2003;16(17):2925–2931.
+Tiwari,
+S., Chate,
+D., Pragya,
+P., Ali,
+K., Bisht,
+D.S.. Variations in
+mass of the PM10, PM2.5 and PM 1 during the monsoon and the winter
+at New Delhi. Aerosol and Air Quality Research 2012;12(1):20–29.
+Tombette,
+M., Mallet,
+V., Sportisse,
+B.. PM10 data assimilation over
+Europe with the optimal interpolation method. Atmospheric Chemistry
+and Physics 2009;9:57–70.
+35
+
+Weinmayr,
+G., Romeo,
+E., De Sario,
+M., Weiland,
+S.K., Forastiere,
+F.. Short-term eﬀects of PM10 and NO2 on respiratory health among
+children with asthma or asthma-like symptoms: a systematic review and
+meta-analysis. Environmental health perspectives 2010;118(4):449–457.
+Winstanley,
+D..
+Rainfall patterns and general atmospheric circulation.
+Nature 1973;245(5422):190–194.
+Wu,
+Y., Liu,
+J., Zhai,
+J., Cong,
+L., Wang,
+Y., Ma,
+W., Zhang,
+Z.,
+Li,
+C.. Comparison of dry and wet deposition of particulate matter in
+near-surface waters during summer. PloS one 2018;13(6):e0199241.
+Yoo, J.M., Lee, Y.R., Kim, D., Jeong, M.J., Stockwell, W.R., Kundu,
+P.K., Oh, S.M., Shin, D.B., Lee, S.J.. New indices for wet scavenging
+of air pollutants (O3, CO, NO2, SO2, and PM10) by summertime rain.
+Atmospheric Environment 2014;82:226–237.
+Zhang, J., Liu, Y., Cui, L.l., Liu, S.q., Yin, X.x., Li, H.c.. Ambient air
+pollution, smog episodes and mortality in Jinan, China. Scientiﬁc reports
+2017;7(1):1–8.
+36
+

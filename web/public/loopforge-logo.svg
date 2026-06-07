@@ -1,0 +1,10 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LoopForge logo">
+  <rect width="160" height="160" rx="30" fill="#151512"/>
+  <path d="M33 82C33 55.8 52.7 36 80 36C103.9 36 123.2 50.5 129.8 72.1" stroke="#D99058" stroke-width="10" stroke-linecap="round"/>
+  <path d="M127 58L132 75.5L114.4 80.2" stroke="#D99058" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M127 78C127 104.2 107.3 124 80 124C56.1 124 36.8 109.5 30.2 87.9" stroke="#42C7B6" stroke-width="10" stroke-linecap="round"/>
+  <path d="M33 102L28 84.5L45.6 79.8" stroke="#42C7B6" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M64 61H96L106 80L96 99H64L54 80L64 61Z" fill="#23231D" stroke="#F0EAD8" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M72 80H88" stroke="#9CCF6B" stroke-width="7" stroke-linecap="round"/>
+  <path d="M80 72V88" stroke="#9CCF6B" stroke-width="7" stroke-linecap="round"/>
+</svg>

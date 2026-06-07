@@ -1,0 +1,3 @@
+# 离线 AutoResearch Agent（search）：简单 agent loop + OpenAI SDK。
+# solver.py 须零三方依赖 — 请勿把此处依赖带进线上求解器。
+openai>=1.40.0
